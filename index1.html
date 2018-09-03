@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .all {
+            position: absolute;
+            padding: 10px;
+            left: 50%;
+            margin-left: -130px;
+            display: none;
+            border: 1px solid #ccc;
+            padding-left: 20px;
+        }
+
+        .picture img {
+            margin-bottom: -10px;
+            width: 132px;
+            height: 60px;
+        }
+        .picture span {
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        .picture .close {
+            position: absolute;
+            margin-right: -20px;
+        }
+        .picture .close a {
+            font-size: 16px;
+            text-decoration: none;
+            color: #ccc;
+        }
+        
+        .content div input {
+            width: 280px;
+            height: 35px;
+            margin-top: 17px;
+        }
+        .content .top {
+            margin-top: 20px;
+        }
+
+        .middle {
+            padding: 10px;
+        }
+        .middle span {
+            font-size: 12px;
+        }
+
+        div .btn {
+            width: 280px;
+            height: 40px;
+            background: #3f89ec;
+            font-size: 16px;
+            font-weight: bolder;
+            color:white;
+        }
+
+        .next {
+            margin-top: 6px;
+        }
+        .next span a {
+            text-decoration: none;
+            font-size: 12px;
+            color: #3f89ec;
+        }
+        .next .two {
+            margin-left: 140px;
+        }
+
+        .last {
+            width: 260px;
+            margin-top: 30px;
+            background: #f0f6ff;
+            padding: 20px;
+        }
+        .last span a {
+            text-decoration: none;
+            font-size: 15px;
+            color: #3f89ec;
+        }
+        .last .forth {
+            margin-left: 130px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="denglu">
+        <a href="#">登录</a>
+    </div>
+
+    <div class="all"></div>
+
+    <script src="./jquery-3.3.1.js"></script>
+
+    <script>
+        var oDiv = document.getElementsByClassName('denglu')[0];
+
+        oDiv.onclick = function () {
+            $('.all').css('display', 'block');
+        
+            var allDiv = document.getElementsByClassName('all')[0];
+            var oDiv1 = document.createElement('div');
+            oDiv1.className = 'picture';
+            var oDiv2 = document.createElement('div');        
+            oDiv2.className = 'content';
+            var oDiv3 = document.createElement('div');
+            oDiv3.className = 'middle';
+            var oDiv4 = document.createElement('div');
+            var oDiv5 = document.createElement('div');
+            oDiv5.className = 'next';
+            var oDiv6 = document.createElement('div');
+            oDiv6.className = 'last';
+
+            allDiv.appendChild(oDiv1);
+            allDiv.appendChild(oDiv2);
+            allDiv.appendChild(oDiv3);
+            allDiv.appendChild(oDiv4);
+            allDiv.appendChild(oDiv5);
+            allDiv.appendChild(oDiv6);
+
+            var oImg = document.createElement('img');
+            oImg.src = './1.png';
+            var oSpan1 = document.createElement('span');
+            oSpan1.innerHTML = '用户名密码登录';
+            var oSpan2 = document.createElement('span');
+            oSpan2.className = 'close';
+            var oA = document.createElement('a');
+            oA.href = '#';
+            oA.innerHTML = '×';
+            oDiv1.appendChild(oImg);
+            oDiv1.appendChild(oSpan1);
+            oDiv1.appendChild(oSpan2);
+            oSpan2.appendChild(oA);
+
+            var topDiv = document.createElement('div');
+            var bottomDiv = document.createElement('div');
+            var topInput = document.createElement('input');
+            var bottomInput = document.createElement('input');
+            topDiv.className = 'top';
+            topInput.type = 'text';
+            bottomDiv.className = '';
+            bottomInput.type = 'text';
+            oDiv2.appendChild(topDiv);
+            oDiv2.appendChild(bottomDiv);
+            topDiv.appendChild(topInput);
+            bottomDiv.appendChild(bottomInput);
+
+            var checkInput = document.createElement('input');
+            var oSpan3 = document.createElement('span');
+            checkInput.type = 'checkbox';
+            oSpan3.innerHTML = '下次自动登录';
+            oDiv3.appendChild(checkInput);
+            oDiv3.appendChild(oSpan3);
+
+            var oBtn = document.createElement('button');
+            oBtn.innerHTML = '登录';
+            oBtn.className = 'btn';
+            oDiv4.appendChild(oBtn);
+
+            var oSpanOne = document.createElement('span');
+            var oSpanTwo = document.createElement('span');
+            oSpanOne.className = 'one';
+            oSpanTwo.className = 'two';
+            var oA1 = document.createElement('a'); 
+            var oA2 = document.createElement('a');
+            oA1.href = '#';
+            oA2.href = '#';
+            oA1.innerHTML = '忘记密码?';
+            oA2.innerHTML = '短信快捷登录';
+            oDiv5.appendChild(oSpanOne);
+            oDiv5.appendChild(oSpanTwo);
+            oSpanOne.appendChild(oA1);
+            oSpanTwo.appendChild(oA2);
+            
+            var oSpan5 = document.createElement('span');
+            var oSpan6 = document.createElement('span');
+            oSpan5.className = 'third';
+            oSpan6.className = 'forth';
+            var oA3 = document.createElement('a'); 
+            var oA4 = document.createElement('a');
+            oA3.href = '#';
+            oA4.href = '#';
+            oA3.innerHTML = '扫码登录';
+            oA4.innerHTML = '立即注册';
+            oDiv6.appendChild(oSpan5);
+            oDiv6.appendChild(oSpan6);
+            oSpan5.appendChild(oA3);
+            oSpan6.appendChild(oA4);
+
+
+            var oClose = document.getElementsByClassName('close')[0];
+            oClose.onclick = function () {
+                $('.all').css('display', 'none');
+            }   
+        }
+
+    </script>
+</body>
+</html>
